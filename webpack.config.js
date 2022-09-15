@@ -2,7 +2,7 @@ const base = require('./config/webpack.base.js');
 const {merge} = require('webpack-merge');
 
 module.exports = (env) => {
-    switch (env.mode) {
+    switch (env.MODE) {
         case 'development':
             return merge({mode: 'development', devtool: 'source-map'}, base.commonConfig())
         case 'production':

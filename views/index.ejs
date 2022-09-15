@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/public.css'/>
 </head>
 <body>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<header>
+    <p>test</p>
+    <% if(process.env.MODE == "production") {%>
+        <p class="production">Production</p>
+    <% }%>
+</header>
+<%- include(page);
+%>
+<script src="/public.js"></script>
 </body>
 </html>
