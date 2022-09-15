@@ -4,9 +4,9 @@ const {merge} = require('webpack-merge');
 module.exports = (env) => {
     switch (env.MODE) {
         case 'development':
-            return merge({MODE: 'development', devtool: 'source-map'}, base.commonConfig())
+            return merge({mode: 'development', devtool: 'source-map'}, base.commonConfig())
         case 'production':
-            return merge({MODE: 'production'}, base.commonConfig())
+            return merge({mode: 'production'}, base.commonConfig())
         default:
             throw new Error('No matching configuration was found!');
     }
