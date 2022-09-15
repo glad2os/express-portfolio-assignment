@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "webpack --env=mode=production",
-    "dev": "webpack --watch --env=mode=development",
-    "production": "webpack --env=mode=production"
+    "build": "webpack --env=MODE=production",
+    "dev": "webpack --watch --env=MODE=development",
+    "production": "webpack --env=MODE=production"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
