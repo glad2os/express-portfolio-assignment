@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: express-portfolio-assignment
+  labels:
+    app: express-portfolio-assignment
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: express-portfolio-assignment
+    tier: frontend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-portfolio-assignment
+  labels:
+    app: express-portfolio-assignment
+spec:
+  selector:
+    matchLabels:
+      app: express-portfolio-assignment
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: express-portfolio-assignment
+        tier: frontend
+    spec:
+      containers:
+      - image: glad2os/express-portfolio-assignment:latest
+        name: express-portfolio-assignment
+        env:
+        - name: MODE
+          value: "production"
+        - name: PORT
+          value: "3000"
+        resources:
+          limits:
+            cpu: 100m
+            memory: 400Mi
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: regcred
