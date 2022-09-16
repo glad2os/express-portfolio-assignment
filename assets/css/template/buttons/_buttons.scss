@@ -34,8 +34,15 @@
     }
   }
 
+  &.active {
+    ::after {
+      width: 100%;
+    }
+  }
+
   &:hover {
     cursor: pointer;
+    color: #efefef;
   }
 
   &:hover > p::after, &:focus > p::after {

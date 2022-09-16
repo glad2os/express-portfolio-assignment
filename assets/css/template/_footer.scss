@@ -1,7 +1,15 @@
 footer {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: left;
+
+  * {
+    margin-left: 10px;
+
+    :not(:first-child) {
+      margin-left: 0;
+    }
+  }
 
   background-color: map-get($page-colours, "c1854A8");
   color: white;

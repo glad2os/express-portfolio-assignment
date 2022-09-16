@@ -34,5 +34,6 @@ spec:
           value: "8080"
         ports:
         - containerPort: 8080
+        imagePullPolicy: Always
       imagePullSecrets:
       - name: regcred
