@@ -1,0 +1,10 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: map-get($page-colours, "c1854A8");
+  color: white;
+  flex: 0 1;
+  padding: 10px 150px;
+}

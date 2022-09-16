@@ -4,15 +4,36 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/public.css'/>
 </head>
-<body>
-<header>
-    <p>test</p>
-    <% if(process.env.MODE == "production") {%>
-        <p class="production">Production</p>
-    <% }%>
+<body class="<%= className %>">
+<header class="<%= className %>">
+    <div class="button">
+        <p>Home page</p>
+    </div>
+    <div class="button">
+        <p>About Me</p>
+    </div>
+    <div class="button">
+        <p>Projects page</p>
+    </div>
+    <div class="button">
+        <p>Services page</p>
+    </div>
+    <div class="button">
+        <p>Contact Me</p>
+    </div>
+    <% if(process.env.MODE == "production") { %>
+        <p class="production"><span>Production</span></p>
+    <% } else { %>
+        <p class="production"><span>Staging</span></p>
+    <% } %>
 </header>
-<%- include(page);
-%>
+<div class="wrapper <%= className %>">
+    <%- include(page);
+    %>
+</div>
+<footer>
+    test footer
+</footer>
 <script src="/public.js"></script>
 </body>
 </html>
