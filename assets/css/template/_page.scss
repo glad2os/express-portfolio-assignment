@@ -24,11 +24,8 @@ body {
   padding: 0;
 
   height: 100vh;
-
-  &.home {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
 
   .wrapper {
     padding: 15px;
