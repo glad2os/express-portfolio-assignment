@@ -1,0 +1,25 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+
+  height: 100vh;
+
+  &.home {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrapper {
+    padding: 15px;
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.06);
+    margin: 2px 150px 0 150px;
+
+
+    .title {
+
+    }
+  }
+}
