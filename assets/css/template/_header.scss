@@ -7,9 +7,11 @@ header {
   font-weight: 500;
 
   .production {
-    :hover{
-      cursor: help;
+    :hover {
+      cursor: default;
+      user-select: none;
     }
+
     span {
       padding: 5px;
       border-radius: 10px;
@@ -17,12 +19,9 @@ header {
     }
   }
 
-
-  &.home {
-    background-color: map-get($page-colours, "c3B88F5");
-    box-shadow: map-get($page-colours, "c1854A8") 1px 1px 1px 1px;
-    color: white;
-  }
+  background-color: map-get($page-colours, "c3B88F5");
+  box-shadow: map-get($page-colours, "c1854A8") 1px 1px 1px 1px;
+  color: white;
 
   font-size: 1.2rem;
   @import "buttons/buttons";

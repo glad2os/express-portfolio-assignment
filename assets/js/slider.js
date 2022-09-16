@@ -1,9 +1,11 @@
 export default function slider() {
 
+    if (!document.querySelector('body').classList.contains('home')) return;
+
     const blockLeft = document.getElementById('block-left');
     const blockMain = document.getElementById('block-main');
-    const blockRight = document.getElementById('block-right');
 
+    const blockRight = document.getElementById('block-right');
     const images = {
         0: 'blobid0.png', 1: 'blobid1.png', 2: 'blobid2.png', 3: 'blobid3.png', 4: 'blobid4.png'
     }
