@@ -1,0 +1,45 @@
+@mixin button {
+  color: white;
+  text-align: center;
+  user-select: none;
+
+  & p {
+    display: flex;
+  }
+
+  font-weight: bold;
+
+  * {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    letter-spacing: 2px;
+    text-align: center;
+    width: fit-content;
+
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: "";
+      position: relative;
+      width: calc(1ch + 1px);
+      height: 1px;
+      bottom: 2px;
+      background-color: white;
+      opacity: 1;
+      transition: width 250ms;
+      margin: 0 auto 0 0;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover > p::after, &:focus > p::after {
+    width: 100%;
+    transition: width 500ms;
+  }
+}
