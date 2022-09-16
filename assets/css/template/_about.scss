@@ -1,0 +1,20 @@
+.photo-block {
+  display: flex;
+  flex-direction: row;
+
+  img {
+    margin-left: 15px;
+  }
+}
+
+.cv-block {
+  display: flex;
+
+  a {
+    color: black;
+
+    &::after {
+      background-color: map-get($page-colours, "cF56553");
+    }
+  }
+}

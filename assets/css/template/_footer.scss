@@ -3,6 +3,16 @@ footer {
   flex-direction: row;
   justify-content: left;
 
+  user-select: none;
+
+  a {
+    color: white;
+
+    &::after {
+      background-color: white;
+    }
+  }
+
   * {
     margin-left: 10px;
 
