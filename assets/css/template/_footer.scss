@@ -1,4 +1,18 @@
+body.services {
+  footer {
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.14);
+  }
+}
+
 footer {
+
+  &.hide {
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
+  }
+
+
   display: flex;
   flex-direction: row;
   justify-content: left;
