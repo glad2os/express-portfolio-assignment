@@ -1,6 +1,12 @@
 @import "fonts/fonts";
 @import "colours/colours";
+@import "keyframes/showEffect";
 
 @import "template/header";
-@import "template/page";
 @import "template/footer";
+
+@import "template/page";
+
+@import "template/about";
+@import "template/projects";
+@import "template/services";

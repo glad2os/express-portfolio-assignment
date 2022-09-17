@@ -1,0 +1,52 @@
+body.services {
+  .labels {
+    user-select: none;
+    span.white {
+
+      position: relative;
+      top: 1.5ch;
+      left: 90px;
+      color: white;
+      background-color: black;
+    }
+
+    span.black {
+      color: black;
+      background-color: white;
+      transition: background-color 0.5s ease, color 0.5s ease-in;
+      &:hover {
+        background-color: #1c1c1c;
+        color: rgba(0, 0, 0, 0.57);
+        cursor: pointer;
+      }
+    }
+
+    width: fit-content;
+    height: fit-content;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    font-size: 7rem;
+
+  }
+
+  .wrapper.services {
+    background-color: unset;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/bg.jpg");
+    background-size: cover;
+    filter: saturate(60%);
+  }
+}
