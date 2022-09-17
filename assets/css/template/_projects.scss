@@ -1,0 +1,60 @@
+body.projects > .wrapper.projects {
+  .items-wrapper {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .item {
+      margin: 15px;
+
+      display: flex;
+      flex-direction: column;
+      flex-grow: 3;
+
+      background-color: #ababab;
+      padding: 10px;
+      border-radius: 5px;
+
+      .title {
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.46);
+        font-weight: bold;
+
+        display: flex;
+        justify-content: center;
+        font-size: 1.3268rem;
+        padding: 5px;
+        color: white;
+        border-radius: 10px;
+      }
+
+      .picture {
+        border-radius: 25px;
+        background-size: cover;
+        max-height: 300px;
+        min-height: 400px;
+        width: auto;
+      }
+
+      &.id1 .picture {
+        background-image: url("/project1.jpg");
+      }
+
+      &.id2 .picture {
+        background-image: url("/project2.png");
+      }
+
+      &.id3 .picture {
+        background-image: url("/project3.png");
+      }
+
+      .role {
+        color: white;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        padding: 15px 0 0 5px;
+      }
+    }
+  }
+
+}
