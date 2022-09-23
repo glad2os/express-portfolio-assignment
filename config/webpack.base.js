@@ -35,12 +35,12 @@ module.exports.commonConfig = () => ({
             javaScript(), scss()
         ]
     }, output: {
-        filename: './[name].js', path: path.resolve(__dirname, '../public'),
+        filename: './js/[name].js', path: path.resolve(__dirname, '../public'),
     }, resolve: {
         extensions: ['.tsx', '.ts', '.js', '.scss']
     }, plugins: [
         new MiniCssExtractPlugin({
-            filename: './[name].css',
+            filename: './css/[name].css',
         }),
     ]
 });

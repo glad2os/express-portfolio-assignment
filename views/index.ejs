@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/public.css'/>
+    <link rel='stylesheet' href='/css/public.css'/>
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
 </head>
@@ -23,7 +23,7 @@
     <div class="button">
         <p>Contact Me</p>
     </div>
-    <% if(process.env.MODE == "production") { %>
+    <% if(process.env.MODE === "production") { %>
         <p class="production"><span>Production</span></p>
     <% } else { %>
         <p class="production"><span>Staging</span></p>
@@ -37,6 +37,6 @@
     <p>Ruslan Ibragimov &copy;</p>
     <p><a href="https://github.com/glad2os/express-portfolio-assignment">Github page</a></p>
 </footer>
-<script src="/public.js"></script>
+<script src="/js/public.js"></script>
 </body>
 </html>
