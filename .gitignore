@@ -1,5 +1,5 @@
 .idea
 node_modules
 public/public.css
-public/public.js
-public/*.map
+public/js/*
+public/css/*
