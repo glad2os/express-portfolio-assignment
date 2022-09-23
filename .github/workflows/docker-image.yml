@@ -1,12 +1,13 @@
-name: Docker Image CI
+name: Docker Image CD
 
 on:
   pull_request:
     branches: [ "master" ]
+    types: [opened, closed]
 
 jobs:
   release:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
