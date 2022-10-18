@@ -25,11 +25,17 @@ router.post('/reguser', function (req, res) {
     const userDAO = {
         login: req.body.login, password: md5(req.body.password)
     }
-
-    userDB.addUser(userDAO, (r) => {
-        if (r.insertedId && r.acknowledged) {
-            res.status(200);
-            res.end();
+    userDB.getUser(userDAO, (r) => r).then(r => {
+        if (r.length === 0) {
+            userDB.addUser(userDAO, (adduserResponse) => {
+                if (adduserResponse.insertedId && adduserResponse.acknowledged) {
+                    res.status(200);
+                    res.end();
+                } else {
+                    res.status(400);
+                    res.end();
+                }
+            });
         } else {
             res.status(400);
             res.end();
