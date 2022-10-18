@@ -34,10 +34,4 @@ header {
   color: white;
 
   font-size: 1.2rem;
-  @import "buttons/buttons";
-
-  .button {
-    @include button;
-  }
-
 }

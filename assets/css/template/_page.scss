@@ -24,6 +24,21 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  .nav-button {
+    @include nav-button;
+  }
+
+  .button {
+    background-color: #626161;
+    max-width: fit-content;
+    padding: 4px 10px;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #383838;
+    }
+  }
 
   .wrapper {
     padding: 15px;

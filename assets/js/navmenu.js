@@ -1,7 +1,7 @@
 import slider from "./slider";
 
 export default function navMenu() {
-    const navMenuElements = Array.from(document.querySelectorAll('header>.button>p'));
+    const navMenuElements = Array.from(document.querySelectorAll('header>.nav-button>p'));
 
     navMenuElements.forEach(el => {
         let redirectPath = el.innerText.split(" ")[0].toLowerCase();

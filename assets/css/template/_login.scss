@@ -1,0 +1,21 @@
+.wrapper.login{
+  .form{
+    display: flex;
+    max-width: fit-content;
+    text-align: right;
+    flex-direction: column;
+    *{
+      margin: 5px 0;
+    }
+    .center{
+      display: flex;
+      justify-content: end;
+      .button{
+        padding: 5px 70px;
+        max-width: inherit;
+        text-align: center;
+        width: 62px;
+      }
+    }
+  }
+}
