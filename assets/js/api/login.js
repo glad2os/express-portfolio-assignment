@@ -31,14 +31,13 @@ export default function login() {
         data.password = document.getElementById('password').value;
 
         if (loginStatement === 'signin') {
-            postData('/users/getuser', data).then(r => r.json()).then(r => {
-                if (r.length !== 0) {
-                    return r;
+            postData('/users/getuser', data).then(r => r.status).then(r => {
+                if (r === 200) {
+                    error.style.display = "flex";
+                    error.querySelector('p').innerText = "You have signed in successfully!";
                 } else {
                     throw 'Account can not be found!'
                 }
-            }).then(r => {
-                console.log(r);
             }).catch(ex => {
                 error.style.display = "flex";
                 error.querySelector('p').innerText = ex
@@ -46,7 +45,8 @@ export default function login() {
         } else if (loginStatement === 'signup') {
             postData('/users/reguser', data).then(r => {
                 if (r.status === 200) {
-                    console.log("done");
+                    error.style.display = "flex";
+                    error.querySelector('p').innerText = "Account created!";
                 } else if (r.status === 400) {
                     throw 'Account can not be created!';
                 }

@@ -47,7 +47,16 @@ router.post('/getuser', function (req, res) {
     const userDAO = {
         login: req.body.login, password: md5(req.body.password)
     }
-    userDB.getUser(userDAO, (r) => res.json(r));
+    userDB.getUser(userDAO, (r) => {
+        if(r[0] !== undefined){
+            console.log(r[0]);
+            res.status(200);
+            res.end();
+        } else {
+            res.status(400);
+            res.end();
+        }
+    });
 });
 
 module.exports = {

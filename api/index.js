@@ -19,7 +19,7 @@ router.post('/', function (req, res) {
     res.json({version: process.env.npm_package_version, application: "back-end"});
 });
 
-router.post('/status', async function (req, res, next) {
+router.post('/status', async function (req, res) {
     try {
         const mongodb = await mongoose.connect(process.env.DB_HOST);
         res.json({
