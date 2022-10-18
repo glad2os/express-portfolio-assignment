@@ -1,11 +1,16 @@
 const mongoose = require('mongoose');
 
 class config {
-
-
     static database = mongoose;
+    static TestModel;
     static async initialize() {
-        return await mongoose.connect(process.env.DB_HOST)
+        const schema = new config.database.Schema({
+            name: String
+        });
+
+        await mongoose.connect(process.env.DB_HOST);
+
+        this.TestModel = config.database.model('Users', schema);
     }
 }
 

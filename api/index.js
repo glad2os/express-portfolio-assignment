@@ -5,6 +5,13 @@ const mongoose = require('mongoose');
 
 const users = require('./users/users');
 
+const {config} = require("./database");
+
+let database = async () => {
+    await config.initialize();
+};
+database().then();
+
 router.use(express.json());
 router.use("/users", users.router);
 

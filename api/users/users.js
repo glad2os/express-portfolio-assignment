@@ -3,55 +3,33 @@ const express = require('express');
 let md5 = require('md5');
 let session = require('express-session');
 const {config} = require("../database");
-const mongoose = require("mongoose");
-const {json} = require("express");
-
 let router = express.Router();
 
-class UserDBConnector extends config {
-
-
-    constructor() {
-        super();
-    }
-
+class UserDBConnector{
     async addUser() {
-        await config.initialize();
-
-        const schema = config.database.Schema({
-            name: String
-        });
-        const TestModel = config.database.model('Users', schema);
-
-        await TestModel.collection.insertOne({name: 'Test 2'});
+        await config.TestModel.collection.insertOne({name: 'Test 2'});
     }
 
     async getAllUsers(callback) {
-        await config.initialize();
-
-        const schema = new config.database.Schema({
-            name: String
-        });
-        const TestModel = config.database.model('Users', schema);
-        return callback(await TestModel.find({name: 'Test 2'}));
+        return callback(await config.TestModel.find({name: 'Test 2'}));
     }
 
 }
 
+let userDB = new UserDBConnector();
+
 router.post('/reguser', function (req, res) {
-    let userDB = new UserDBConnector();
     userDB.addUser().then(r => {
-        res.json(r);
+        res.status(200);
+        res.end();
     }).catch(ex => {
         res.json(ex);
     })
 });
 
 router.post('/getuser', function (req, res) {
-    let userDB = new UserDBConnector();
     userDB.getAllUsers((r) => res.json(r));
 });
-
 
 module.exports = {
     router
