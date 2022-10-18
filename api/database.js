@@ -5,7 +5,8 @@ class config {
     static TestModel;
     static async initialize() {
         const schema = new config.database.Schema({
-            name: String
+            login: String,
+            password: String
         });
 
         await mongoose.connect(process.env.DB_HOST);

@@ -5,30 +5,43 @@ let session = require('express-session');
 const {config} = require("../database");
 let router = express.Router();
 
-class UserDBConnector{
-    async addUser() {
-        await config.TestModel.collection.insertOne({name: 'Test 2'});
+class UserDBConnector {
+    async addUser(userDAO, callback) {
+        return callback(await config.TestModel.collection.insertOne(userDAO));
     }
 
-    async getAllUsers(callback) {
-        return callback(await config.TestModel.find({name: 'Test 2'}));
+    async getUser(userDAO, callback) {
+        return callback(await config.TestModel.find({
+            $and: [{
+                "login": `${userDAO.login}`, "password": `${userDAO.password}`
+            }]
+        }));
     }
-
 }
 
 let userDB = new UserDBConnector();
 
 router.post('/reguser', function (req, res) {
-    userDB.addUser().then(r => {
-        res.status(200);
-        res.end();
-    }).catch(ex => {
-        res.json(ex);
-    })
+    const userDAO = {
+        login: req.body.login, password: md5(req.body.password)
+    }
+
+    userDB.addUser(userDAO, (r) => {
+        if (r.insertedId && r.acknowledged) {
+            res.status(200);
+            res.end();
+        } else {
+            res.status(400);
+            res.end();
+        }
+    });
 });
 
 router.post('/getuser', function (req, res) {
-    userDB.getAllUsers((r) => res.json(r));
+    const userDAO = {
+        login: req.body.login, password: md5(req.body.password)
+    }
+    userDB.getUser(userDAO, (r) => res.json(r));
 });
 
 module.exports = {

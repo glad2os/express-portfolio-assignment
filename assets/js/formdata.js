@@ -4,12 +4,6 @@ export default function formData() {
 
     if (!form) return;
 
-    if (error) {
-        error.querySelector('.close-btn').onclick = (self) => {
-            self.target.parentNode.parentNode.style.display = "none";
-        }
-    }
-
     /**
      * please never do that))
      */
