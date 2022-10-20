@@ -3,20 +3,21 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-const users = require('./users/users');
+const users = require('./users/user');
+const contacts = require('./contacts/contact');
 
 const config = require("./database").config;
 
 try {
-    config.initialize().then(r => {});
+    config.initialize().then(() => {});
     console.log('MongoDB connected!!')
 } catch (err) {
     throw err;
 }
 
-
 router.use(express.json());
 router.use("/users", users.router);
+router.use("/contacts", contacts.router);
 
 router.post('/', function (req, res) {
     res.json({version: process.env.npm_package_version, application: "back-end"});

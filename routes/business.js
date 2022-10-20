@@ -1,5 +1,5 @@
 const express = require('express');
-const UserDBConnector = require("../model/userDBConnector");
+const UserDBConnector = require("../model/user");
 const router = express.Router();
 
 let userDB = new UserDBConnector();

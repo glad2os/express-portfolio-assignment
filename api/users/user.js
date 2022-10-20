@@ -1,7 +1,7 @@
 const express = require('express');
 
 const md5 = require('md5');
-const UserDBConnector = require("../../model/userDBConnector");
+const UserDBConnector = require("../../model/user");
 const router = express.Router();
 
 let userDB = new UserDBConnector();
