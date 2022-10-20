@@ -34,8 +34,9 @@ router.post('/add', function (req, res) {
 
 router.post('/update', function (req, res) {
     /*
-    db.users.updateMany({ "contacts._id": ObjectId("6350ede0c6f75a500b3d7114") }, {$set : {"contacts": [{"_id": ObjectId("6350ede0c6f75a500b3d7114"),"name": "2"}]}});
+    db.users.updateMany({ "contacts._id": ObjectId("6350ef1e43d2b4700ba65232") }, {$set : {"contacts.$.name": "testU" }});
      */
+
     const userDAO = {
         login: req.body.login, password: md5(req.body.password)
     }
