@@ -33,6 +33,7 @@ router.post('/add', function (req, res) {
 });
 
 router.post('/update', function (req, res) {
+    console.log(req.body)
     const contactDAO = {
         _id: req.body._id, name: req.body.name, number: req.body.number, email: req.body.email
     }

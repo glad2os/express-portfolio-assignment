@@ -65,6 +65,32 @@ export default function fillTable() {
                     updateContact.classList.add("update", "unlock");
                     updateContact.innerText = "Update";
 
+                    updateContact.onclick = (self) => {
+                        if (!self.target.classList.contains("lock")) {
+                            const elements = self.target.parentNode.parentNode.querySelectorAll('td');
+                            let name = elements[0].innerText;
+                            let number = elements[1].innerText;
+                            let email = elements[2].innerText;
+
+                            const contactDAO = {
+                                "_id": item._id,
+                                "name": name,
+                                "email": number,
+                                "number": email
+                            }
+
+                            postData('/contacts/update', contactDAO).then(r => r.json()).then(r => {
+                                if (r.modifiedCount >= 1) {
+                                    self.target.classList.remove('unlock');
+                                    self.target.classList.add('lock');
+                                    self.target.innerText = "Updated";
+                                } else {
+                                    console.log(r);
+                                }
+                            });
+                        }
+                    }
+
                     let removeContact = document.createElement('div');
                     removeContact.classList.add("remove");
                     removeContact.innerText = "Remove";
