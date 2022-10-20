@@ -75,8 +75,8 @@ export default function fillTable() {
                             const contactDAO = {
                                 "_id": item._id,
                                 "name": name,
-                                "email": number,
-                                "number": email
+                                "number": number,
+                                "email": email
                             }
 
                             postData('/contacts/update', contactDAO).then(r => r.json()).then(r => {

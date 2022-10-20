@@ -10,7 +10,7 @@ const config = require("./database").config;
 
 try {
     config.initialize().then(() => {});
-    console.log('MongoDB connected!!')
+    console.log('MongoDB connected')
 } catch (err) {
     throw err;
 }

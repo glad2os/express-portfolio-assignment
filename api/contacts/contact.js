@@ -33,7 +33,6 @@ router.post('/add', function (req, res) {
 });
 
 router.post('/update', function (req, res) {
-    console.log(req.body)
     const contactDAO = {
         _id: req.body._id, name: req.body.name, number: req.body.number, email: req.body.email
     }
@@ -76,7 +75,6 @@ router.post('/getall', function (req, res) {
         if (userDAO !== undefined) {
             userDB.getUserById(userDAO, (user) => user).then(user => {
                 contactDB.getAllContacts(user, (response) => {
-                    console.log(response);
                     res.json(response)
                 });
             });
