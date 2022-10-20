@@ -1,0 +1,57 @@
+body.business {
+  table {
+    width: 100%;
+    text-align: left;
+
+    tr:nth-child(even) {
+      background-color: rgba(204, 202, 202, 0.75);
+    }
+
+    td:not(.settings) {
+      padding: 10px;
+      border: #cccaca solid 1px;
+      cursor: pointer;
+      user-select: all;
+    }
+
+    .remove {
+      cursor: pointer;
+
+      &::before {
+        content: "🗑";
+        margin-right: 5px;
+      }
+    }
+
+    .unlock {
+      cursor: pointer;
+
+      &::before {
+        content: "🔓";
+        margin-right: 5px;
+      }
+    }
+
+    .lock {
+      cursor: pointer;
+
+      &::before {
+        content: "🔒";
+        margin-right: 5px;
+      }
+    }
+
+    .settings {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .plus {
+      &::before {
+        content: "➕";
+        color: #090909a3;
+        margin-right: 5px;
+      }
+    }
+  }
+}

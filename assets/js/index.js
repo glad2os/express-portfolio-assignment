@@ -2,6 +2,7 @@ import navMenu from "./navmenu";
 import hideHeaderAndFooter from "./services";
 import formData from "./formdata";
 import login from "./api/login";
+import fillTable from './api/business';
 
 function perform(SITE_NAME) {
 
@@ -14,6 +15,10 @@ function perform(SITE_NAME) {
             break;
         case "login":
             login();
+            break;
+        case "business":
+            fillTable();
+            break;
     }
 }
 
