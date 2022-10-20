@@ -33,30 +33,48 @@ router.post('/add', function (req, res) {
 });
 
 router.post('/update', function (req, res) {
-    /*
-    db.users.updateMany({ "contacts._id": ObjectId("6350ef1e43d2b4700ba65232") }, {$set : {"contacts.$.name": "testU" }});
-     */
-
-    const userDAO = {
-        login: req.body.login, password: md5(req.body.password)
+    const contactDAO = {
+        _id: req.body._id, name: req.body.name, number: req.body.number, email: req.body.email
     }
-    userDB.getUser(userDAO, (r) => {
-        if (r[0] !== undefined) {
-            req.session.userid = r[0].id;
-            res.status(200);
-            res.end();
-        } else {
-            res.status(400);
-            res.end();
-        }
-    });
+
+    if (contactDAO.name === undefined || contactDAO.name.length < 1 || contactDAO.number === undefined || contactDAO.number.length < 1 || contactDAO.email === undefined || contactDAO.email.length < 1) {
+        res.status(405);
+        res.json(contactDAO);
+    } else {
+        userDB.getUserById(req.session.userid, (userDAO) => userDAO).then(userDAO => {
+            if (userDAO !== undefined) {
+                contactDB.updateContact(contactDAO, (r) => r).then(r => res.json(r));
+            } else {
+                res.status(403);
+                res.end();
+            }
+        });
+    }
+});
+
+router.post('/remove', function (req, res) {
+    const contactId = req.body._id;
+
+    if (contactId === undefined) {
+        res.status(405);
+        res.json({_id: contactId});
+    } else {
+        userDB.getUserById(req.session.userid, (userDAO) => userDAO).then(userDAO => {
+            if (userDAO !== undefined) {
+                contactDB.removeContact(contactId, (r) => r).then(r => res.json(r));
+            } else {
+                res.status(403);
+                res.end();
+            }
+        });
+    }
 });
 
 router.post('/getall', function (req, res) {
     userDB.getUserById(req.session.userid, (userDAO) => userDAO).then(userDAO => {
         if (userDAO !== undefined) {
             userDB.getUserById(userDAO, (user) => user).then(user => {
-                contactDB.getAllContacts(user,(response) => {
+                contactDB.getAllContacts(user, (response) => {
                     res.json(response)
                 });
             });

@@ -3,7 +3,6 @@ const {mongoose} = require('mongoose');
 
 module.exports = class contactModel {
     async addContact(user, contactDAO, callback) {
-        console.log(user);
         return callback(await config.userModel.collection.updateOne({_id: mongoose.Types.ObjectId(user._id)}, {
             $push: {
                 "contacts": {
@@ -17,15 +16,29 @@ module.exports = class contactModel {
     }
 
     async getAllContacts(user, callback) {
-        let userDAO = await config.userModel.find({
+        let response = await config.userModel.find({
             _id: mongoose.Types.ObjectId(user._id),
         });
-        return callback(userDAO[0].contacts);
+        return callback(response[0].contacts);
     }
 
+    async updateContact(contactDAO, callback){
+        let response = await config.userModel.updateMany({
+            "contacts._id": mongoose.Types.ObjectId(contactDAO._id),
+        }, {$set : {
+            "contacts.$.name": contactDAO.name,
+                "contacts.$.number": contactDAO.number,
+                "contacts.$.email": contactDAO.email
+            }});
+        return callback(response);
+    }
 
-    async validateUserBySessionData(userId) {
-        const userDAO = await config.userModel.find({_id: mongoose.Types.ObjectId(userId)});
-        return userDAO[0] !== undefined && userDAO[0].password.length > 0;
+    async removeContact(contactId, callback){
+        let response = await config.userModel.updateMany(
+            { },
+            { $pull: { contacts: {"_id": mongoose.Types.ObjectId(contactId)}} }
+        )
+
+        return callback(response);
     }
 }
