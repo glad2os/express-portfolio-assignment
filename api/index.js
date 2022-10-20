@@ -10,6 +10,7 @@ const {config} = require("./database");
 let database = async () => {
     await config.initialize();
 };
+
 database().then();
 
 router.use(express.json());

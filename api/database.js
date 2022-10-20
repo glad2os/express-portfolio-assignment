@@ -5,6 +5,7 @@ class config {
     static TestModel;
     static async initialize() {
         const schema = new config.database.Schema({
+            id: : Object
             login: String,
             password: String
         });

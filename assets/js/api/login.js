@@ -35,6 +35,10 @@ export default function login() {
                 if (r === 200) {
                     error.style.display = "flex";
                     error.querySelector('p').innerText = "You have signed in successfully!";
+                    setTimeout(() => {
+                        window.location.replace("/business");
+                    }, 1300);
+
                 } else {
                     throw 'Account can not be found!'
                 }

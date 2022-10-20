@@ -10,6 +10,7 @@ const servicesRouter = require('./routes/services');
 const aboutRouter = require('./routes/about');
 const contactRouter = require('./routes/contact');
 const loginRouter = require('./routes/login');
+const businessRouter = require('./routes/business');
 const apiRouter = require('./api/index');
 const session = require("express-session");
 
@@ -35,6 +36,7 @@ app.use('/projects', projectRouter);
 app.use('/contact', contactRouter);
 app.use('/services', servicesRouter);
 app.use('/login', loginRouter);
+app.use('/business', businessRouter);
 app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
