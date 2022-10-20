@@ -76,6 +76,7 @@ router.post('/getall', function (req, res) {
         if (userDAO !== undefined) {
             userDB.getUserById(userDAO, (user) => user).then(user => {
                 contactDB.getAllContacts(user, (response) => {
+                    console.log(response);
                     res.json(response)
                 });
             });

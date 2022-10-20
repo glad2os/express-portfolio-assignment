@@ -25,9 +25,9 @@ export default function fillTable() {
         const addButton = document.getElementById('addContact');
         addButton.onclick = () => {
             const newContactTable = document.querySelectorAll('table tr')[1].children;
-            const name = newContactTable[0].innerText;
-            const number = newContactTable[0].innerText;
-            const email = newContactTable[0].innerText;
+            let name = newContactTable[0].innerText;
+            let number = newContactTable[1].innerText;
+            let email = newContactTable[2].innerText;
 
             postData('/contacts/add', {
                 "name": name, "number": number, "email": email
