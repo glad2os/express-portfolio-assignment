@@ -8,25 +8,29 @@
 </head>
 <body class="<%= className %>">
 <header class="<%= className %>">
-    <div class="button">
+    <div class="nav-button">
         <p>Home page</p>
     </div>
-    <div class="button">
+    <div class="nav-button">
         <p>About Me</p>
     </div>
-    <div class="button">
+    <div class="nav-button">
         <p>Projects page</p>
     </div>
-    <div class="button">
+    <div class="nav-button">
         <p>Services page</p>
     </div>
-    <div class="button">
+    <div class="nav-button">
         <p>Contact Me</p>
     </div>
-    <% if(process.env.MODE === "production") { %>
-        <p class="production"><span>Production</span></p>
+    <% if (typeof (authenticated) !== 'undefined') { %>
+        <div class="nav-button">
+            <p>Business</p>
+        </div>
     <% } else { %>
-        <p class="production"><span>Staging</span></p>
+        <div class="nav-button">
+            <p class="highlighted">Login in</p>
+        </div>
     <% } %>
 </header>
 <div class="wrapper <%= className %>">
@@ -37,6 +41,7 @@
     <p>Ruslan Ibragimov &copy;</p>
     <p><a href="https://github.com/glad2os/express-portfolio-assignment">Github page</a></p>
 </footer>
+<script src="/js/functions.js"></script>
 <script src="/js/public.js"></script>
 </body>
 </html>

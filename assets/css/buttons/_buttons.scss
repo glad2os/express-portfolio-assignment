@@ -1,4 +1,4 @@
-@mixin button {
+@mixin nav-button {
   color: white;
   text-align: center;
   user-select: none;
@@ -29,7 +29,7 @@
       bottom: 2px;
       background-color: white;
       opacity: 1;
-      transition: width 250ms;
+      transition: width 850ms;
       margin: 0 auto 0 0;
     }
   }

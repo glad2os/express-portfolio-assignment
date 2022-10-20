@@ -13,20 +13,23 @@
     "debug": "~2.6.9",
     "ejs": "~3.1.7",
     "express": "~4.16.1",
+    "express-session": "^1.17.3",
     "http-errors": "~1.6.3",
+    "md5": "^2.3.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "mongoose": "^6.6.5",
     "morgan": "^1.10.0",
     "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
-    "webpack": "^5.72.0",
-    "webpack-cli": "^4.10.0",
+    "@babel/core": "^7.19.0",
+    "@babel/preset-env": "^7.16.5",
+    "babel-loader": "^8.2.3",
     "css-loader": "^6.7.1",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
-    "@babel/core": "^7.19.0",
-    "@babel/preset-env": "^7.16.5",
-    "babel-loader": "^8.2.3"
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.10.0"
   }
 }
