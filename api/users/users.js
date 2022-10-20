@@ -28,14 +28,6 @@ router.post('/reguser', function (req, res) {
     });
 });
 
-// router.post('/validate_profile', function (req, res) {
-//     try {
-//         res.json(userDB.validateUserBySessionData(req.session.userid))
-//     } catch (ex){
-//         res.json(ex);
-//     }
-// });
-
 router.post('/getuser', function (req, res) {
     const userDAO = {
         login: req.body.login, password: md5(req.body.password)

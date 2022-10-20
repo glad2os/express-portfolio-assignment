@@ -23,9 +23,15 @@
     <div class="nav-button">
         <p>Contact Me</p>
     </div>
-    <div class="nav-button">
-        <p class="highlighted">Login in</p>
-    </div>
+    <% if (typeof (authenticated) !== 'undefined') { %>
+        <div class="nav-button">
+            <p>Business</p>
+        </div>
+    <% } else { %>
+        <div class="nav-button">
+            <p class="highlighted">Login in</p>
+        </div>
+    <% } %>
 </header>
 <div class="wrapper <%= className %>">
     <%- include(page);

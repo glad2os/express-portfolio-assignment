@@ -15,6 +15,7 @@ module.exports = class UserDBConnector {
     }
 
     async validateUserBySessionData(userId) {
-        return await config.userModel.find({_id: mongoose.Types.ObjectId(userId)});
+        const userDAO = await config.userModel.find({_id: mongoose.Types.ObjectId(userId)});
+        return userDAO[0] !== undefined && userDAO[0].password.length > 0;
     }
 }
