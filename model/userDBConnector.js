@@ -1,21 +1,20 @@
-const config = require("../api/database");
-const { mongoose } = require('mongoose');
+const config = require("../api/database").config;
+const {mongoose} = require('mongoose');
 
 module.exports = class UserDBConnector {
     async addUser(userDAO, callback) {
-        return callback(await config.TestModel.collection.insertOne(userDAO));
+        return callback(await config.userModel.collection.insertOne(userDAO));
     }
 
     async getUser(userDAO, callback) {
-        console.log(config.TestModel)
-        return callback(await config.TestModel.collection.find({
+        return callback(await config.userModel.find({
             $and: [{
                 "login": `${userDAO.login}`, "password": `${userDAO.password}`
             }]
         }));
     }
-    //
-    // async validateUserBySessionData(userId){
-    //     return await config.TestModel.collection.find({_id: mongoose.Types.ObjectId(userId)});
-    // }
+
+    async validateUserBySessionData(userId) {
+        return await config.userModel.find({_id: mongoose.Types.ObjectId(userId)});
+    }
 }

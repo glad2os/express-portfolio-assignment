@@ -28,17 +28,21 @@ router.post('/reguser', function (req, res) {
     });
 });
 
-router.get('/test', function (req, res){
-    // res.json(userDB.validateUserBySessionData(req.session))
-});
+// router.post('/validate_profile', function (req, res) {
+//     try {
+//         res.json(userDB.validateUserBySessionData(req.session.userid))
+//     } catch (ex){
+//         res.json(ex);
+//     }
+// });
 
 router.post('/getuser', function (req, res) {
     const userDAO = {
         login: req.body.login, password: md5(req.body.password)
     }
     userDB.getUser(userDAO, (r) => {
-        if(r[0] !== undefined){
-            req.session.id = r[0].id;
+        if (r[0] !== undefined) {
+            req.session.userid = r[0].id;
             res.status(200);
             res.end();
         } else {
